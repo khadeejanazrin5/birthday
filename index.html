@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Sochuuuu Baby 🎂</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: 'Poppins', sans-serif;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+      overflow:hidden;
+      padding:20px;
+      position:relative;
+    }
+
+    .container{
+      width:100%;
+      max-width:420px;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      border-radius:25px;
+      padding:35px 25px;
+      text-align:center;
+      color:white;
+      box-shadow:0 8px 30px rgba(0,0,0,0.2);
+      animation: float 3s ease-in-out infinite;
+      z-index:2;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .cake{
+      font-size:75px;
+      margin-bottom:10px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    h1{
+      font-size:2.3rem;
+      margin-bottom:15px;
+      font-weight:700;
+      line-height:1.3;
+    }
+
+    .name{
+      color:#fff8a6;
+      text-shadow:0 0 15px rgba(255,255,255,0.8);
+    }
+
+    p{
+      font-size:1rem;
+      line-height:1.7;
+      margin-top:15px;
+    }
+
+    .btn{
+      margin-top:25px;
+      padding:14px 30px;
+      border:none;
+      border-radius:50px;
+      background:white;
+      color:#ff4f81;
+      font-size:1rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover{
+      transform:scale(1.08);
+      background:#fff8a6;
+    }
+
+    /* Floating Balloons */
+    .balloon{
+      position:absolute;
+      bottom:-150px;
+      font-size:50px;
+      animation: rise linear infinite;
+      opacity:0.85;
+      z-index:1;
+    }
+
+    .balloon:nth-child(1){
+      left:10%;
+      animation-duration:8s;
+    }
+
+    .balloon:nth-child(2){
+      left:45%;
+      animation-duration:10s;
+    }
+
+    .balloon:nth-child(3){
+      left:80%;
+      animation-duration:12s;
+    }
+
+    @keyframes rise {
+      from{
+        transform:translateY(0);
+      }
+      to{
+        transform:translateY(-120vh);
+      }
+    }
+
+    /* Floating Hearts */
+    .heart{
+      position:absolute;
+      color:white;
+      font-size:20px;
+      animation: hearts 6s linear infinite;
+      opacity:0.7;
+    }
+
+    .heart:nth-child(4){
+      left:20%;
+      animation-duration:5s;
+    }
+
+    .heart:nth-child(5){
+      left:70%;
+      animation-duration:7s;
+    }
+
+    @keyframes hearts{
+      from{
+        transform:translateY(100vh) scale(0.5);
+      }
+      to{
+        transform:translateY(-120vh) scale(1.2);
+      }
+    }
+
+    @media (max-width:480px){
+
+      h1{
+        font-size:1.9rem;
+      }
+
+      p{
+        font-size:0.95rem;
+      }
+
+      .cake{
+        font-size:65px;
+      }
+
+      .container{
+        padding:28px 20px;
+      }
+
+      .btn{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Balloons -->
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+
+  <!-- Hearts -->
+  <div class="heart">💖</div>
+  <div class="heart">💖</div>
+
+  <!-- Main Card -->
+  <div class="container">
+
+    <div class="cake">🎂</div>
+
+    <h1>
+      Happy Birthday <br>
+      <span class="name">Sochuuuu Baby</span> 🎉
+    </h1>
+
+    <p>
+      Wishing you endless happiness, love, smiles, and beautiful memories today and always 💕  
+      May your special day be as amazing and adorable as you are ✨
+    </p>
+
+    <button class="btn" onclick="startConfetti()">
+      Celebrate 🎊
+    </button>
+
+  </div>
+
+  <script>
+
+    // Auto confetti when page opens
+    window.onload = () => {
+      launchConfetti();
+    };
+
+    function launchConfetti() {
+      confetti({
+        particleCount: 180,
+        spread: 120,
+        origin: { y: 0.6 }
+      });
+    }
+
+    function startConfetti() {
+
+      let duration = 4 * 1000;
+      let end = Date.now() + duration;
+
+      (function frame() {
+
+        confetti({
+          particleCount: 10,
+          angle: 60,
+          spread: 90,
+          origin: { x: 0 }
+        });
+
+        confetti({
+          particleCount: 10,
+          angle: 120,
+          spread: 90,
+          origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+
+      })();
+    }
+
+  </script>
+
+</body>
+</html>
